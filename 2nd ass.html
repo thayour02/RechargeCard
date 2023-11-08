@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+       
+    
+
+    <button onclick="display()">Click me</button>
+    <div id="div1"></div>
+    
+
+</body>
+<script>
+   
+
+    function display(){
+        let name = prompt ("enter the string")
+        let nametwo = name.toUpperCase()
+        let div1 = document.getElementById("div1")
+        div1.innerHTML = `
+        <p>the length of the string is ${nametwo.length}</p>
+         <p>the string in UPPERCASE is ${nametwo.toUpperCase}</p>
+         <p>the string in lowercase is ${nametwo.toLowerCase}</p>
+         <p>The index of "A" in the string is ${nametwo.indexOf ("A")}</p>
+
+
+         <p>
+            ${
+                name.includes("JAVASCRIPT") ? "The string includes javascript":"The string does not include javascript"
+            }
+            
+            </p>
+
+
+        `
+        
+    } 
+    //   assignment
+    // write up on;
+    // Number method of javascript 
+    // Array method
+    // Array attration method
+
+</script>
+</html>

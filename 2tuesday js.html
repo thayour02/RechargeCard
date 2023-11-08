@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="displayNum(1)">1</button>
+    <button onclick="displayNum(2)">2</button>
+    <button onclick="displayNum(3)">3</button>
+    <button onclick="displayNum(4)">4</button>
+    <button onclick="displayNum(5)">5</button>
+    <button onclick="displayNum(6)">6</button>
+    <button onclick="displayNum(7)">7</button>
+    <button onclick="displayNum(8)">8</button>
+    <button onclick="displayNum(9)">9</button>
+    <button onclick="displayNum(0)">0</button>
+
+    <div id="div5"></div>
+    <br>
+    <br>
+
+
+    <input id="input1" type="text">
+    <input id="input2" type="text">
+
+    <br>
+    <button onclick="operate('+')">+</button>
+    <button onclick="operate('-')">-</button>
+    <button onclick="operate('/')">/</button>
+    <button onclick="operate('*')">*</button>
+    <div id="div6"></div>
+</body>
+<script>
+    let div5=document.getElementById("div5");
+    function displayNum(num){
+        div5.innerText +=num
+    }
+
+
+    let input1=document.getElementById("input1")
+    let input2=document.getElementById("input2")
+    let div6 = document.getElementById("div6")
+    function operate(sign){
+        let num1 = Number (input1.value)
+        let num2 = Number (input2.value)
+
+        if(sign === "+"){
+            div6.innerHTML = num1 +num2
+        } else if (sign === "-"){
+            div6.innerHTML =num1 - num2
+        }else if (sign === "/"){
+            div6.innerHTML =num1/num2
+        }else if (sign === "*"){
+            div6.innerHTML =num1 * num2
+        }
+       
+        
+    }
+
+</script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="mx-auto card shadow-lg container p-5">
+        <h6 class="display-6 text-center text-muted ">Shopping List</h6>
+        <input type="text" class="form-control my-2" placeholder="Name" id="input1">
+        <input type="text" class="form-control my-2" placeholder="Quantity" id="input2">
+        <input type="text" class="form-control my-2" placeholder="Price" id="input3">
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-dark" onclick="addItem()">Submit</button>
+            <p id="total">Total: </p>
+        </div>
+    </div>
+
+    <div class="mx-auto card shadow-lg container p-5" id="div1">
+
+    </div>
+
+</body>
+<script>
+    let shoppingArray = [];
+    if (localStorage.getItem("shoppingArray") === null) {
+        localStorage.setItem("shoppingArray", JSON.stringify(shoppingArray))
+    }
+    shoppingArray = JSON.parse(localStorage.getItem("shoppingArray"))
+    let div1 = document.getElementById("div1")
+    if (shoppingArray.length !== 0) {
+        shoppingArray.forEach((item, index) => {
+            div1.innerHTML += `
+            <div class="d-flex justify-content-between px-5 my-1">
+                <p>Item: ${item.name}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Price: ${item.price}</p>
+                <p>Sub-Total: ${item.price * item.quantity}</p>
+                <button class='btn btn-dark' onclick="editItem(${index})">Edit</button>
+                <button class='btn btn-dark' onclick="deleteItem(${index})">Delete</button>
+            </div>    
+        `
+        })
+    }
+
+    let total = document.getElementById("total")
+    total.innerHTML = `Total: ${shoppingArray.reduce((total, item) => { return total + (item.quantity * item.price) }, 0)}`
+
+    let input1 = document.getElementById("input1");
+    let input2 = document.getElementById("input2");
+    let input3 = document.getElementById("input3");
+
+    const addItem = () => {
+        if (localStorage.getItem("shoppingArray") === null) {
+            localStorage.setItem("shoppingArray", JSON.stringify([]))
+        }
+        let name = input1.value;
+        let quantity = input2.value;
+        let price = input3.value
+        if (name === "" || quantity == "" || price === "") {
+            alert("Inputs must not be empty")
+        }
+        let shoppingArray2 = JSON.parse(localStorage.getItem("shoppingArray"))
+
+        let itemObj = {
+            name,
+            quantity: Number(quantity),
+            price: Number(price)
+        }
+
+        shoppingArray2.push(itemObj);
+        // let shoppingArray3 = [...shoppingArray2, itemObj];
+        localStorage.setItem("shoppingArray", JSON.stringify(shoppingArray2));
+        window.location.href = "anotherShoppingList.html"
+    }
+
+    const deleteItem = (index) => {
+        let shoppingArray3 = JSON.parse(localStorage.getItem("shoppingArray"));
+        shoppingArray3.splice(index, 1)
+        localStorage.setItem("shoppingArray", JSON.stringify(shoppingArray3));
+        window.location.href = "anotherShoppingList.html";
+    }
+
+    const editItem = (index) => {
+        let shoppingArray4 = JSON.parse(localStorage.getItem("shoppingArray"));
+        let oldObj = shoppingArray4[index];
+        let name = prompt("Enter you new item name", oldObj.name);
+        let quantity = prompt("Enter you new item quantity", oldObj.quantity);
+        let price = prompt("Enter you new item price", oldObj.price);
+
+        let newObj = {
+            name,
+            quantity: Number(quantity),
+            price: Number(price)
+        };
+
+        shoppingArray4.splice(index, 1, newObj);
+        localStorage.setItem("shoppingArray", JSON.stringify(shoppingArray4));
+        window.location.href = "anotherShoppingList.html"
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:rgb(126, 186, 197);
+        }
+        
+        .net{
+            font-size: 30px;
+            color: gray;
+        }
+        #Network{
+            width: 200px;
+            height: 40px;   
+        }
+        #amount{
+            width: 200px;
+            height: 40px;
+          
+        }
+        #gen{
+            width: 100px;
+            height: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: black;
+            color: white;
+            margin-left: 500px;
+            margin-top: 10px;
+        }
+        .load{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 60px;
+            color:cadetblue;
+            margin-left: 300px;
+        }
+        .nnp{
+            margin-left: 200px;
+            margin-top: 20px;
+        }
+        .nnn{
+            margin-left: 200px;
+        }
+        #cardd{
+            margin-left: 400px;
+            font-size: 60px;
+            color: cadetblue;
+        }
+        .mtn{
+            border: 1px solid cadetblue;
+            width: 380px;
+            padding: 5px;
+            margin: 5px 0;
+            height: 25px;
+            align-content: center;
+            margin-left: 200px;
+            display: flex;
+        }
+        .mtn input{
+            border: none;
+            outline: none;
+            background: none;
+        }
+        .mtn button{
+            background: none;
+           margin-left: 150px;
+           height: 28px;
+           font-size: 15px;
+           font-family: bold;
+           border: 1px solid cadetblue;   
+        }
+    </style>
+</head>
+<body>
+    <main>
+       
+        <h1 id="cardd">Recharge Card </h1>
+        
+    <div class="nnn">
+    <Label class="net" for="">Network provider:</Label>
+    <select  name="" id="Network">
+    <option value="mtn">mtn</option>
+    <option value="glo">glo</option>
+    <option value="9mobile">9mobile</option>
+    <option value="airtel">airtel</option>
+    </select>
+    </div>
+    
+       <div class="nnp">
+    <label class="net" for="">Network provider:</label>
+    <select name="" id="amount">Z
+     <option value="100">100</option>
+     <option value="200">200</option>
+     <option value="500">500</option>
+     <option value="1000">1000</option>
+    </select>
+       </div>
+    
+         
+        <button id="gen" onclick="genPin()">Generate Pin</button>
+
+        <h1 id="disPin"></h1>
+
+        <h1 class="load">Load Airtime</h1>
+
+       
+        <div class="mtn">
+        <input type="text" id="loadmtn" placeholder="enter your code">
+        <button onclick="loadmtncard()">loadmtn</button>
+        </div>
+<br>
+        <div class="mtn">
+        <input type="text" id="loadglo" placeholder="enter your code">
+        <button onclick="loadglocard()">loadglo</button>
+        </div>
+ <br>
+ <div class="mtn">
+    <input type="text" id="loadairtel" placeholder="enter your code">
+ <button onclick="loadairtelcard()">loadairtel</button>
+ </div>
+<br>
+ <div class="mtn">
+    <input type="text" id="load9mobile" placeholder="enter your code">
+ <button onclick="load9mobilecard()">load9mobile</button>
+ </div>
+    </main>
+</body>
+</html>
+<script>
+    let amount = document.getElementById("amount");
+    let Network = document.getElementById("Network");
+    let loadmtn =document.getElementById("loadmtn");
+    let loadglo = document.getElementById("loadglo");
+    let loadairtel=document.getElementById("loadairtel");
+    let load9mobile=document.getElementById("load9mobile");
+
+    function genPin(){
+        let pin = Math.floor(Math.random()* 10000000000000);
+        disPin.innerHTML = pin
+        alert(`you have generated ${Network.value} of  ${amount.value}`)
+    }
+
+    function loadmtncard(){
+        let pin = document.getElementById("disPin").innerHTML
+        if(!loadmtn.value.startsWith("*555*") || !loadmtn.value.endsWith("#") || !loadmtn.value.includes(pin)){
+            alert("Invalid Code")
+        }
+        else if(Network.value !== "mtn"){
+            alert("invalid network provider")
+        }else{
+            alert(`you have recharged ${Network.value} of ${amount.value}`)
+        }
+    }
+
+    function loadglocard(){
+        let pin = document.getElementById("disPin").innerHTML
+        if(!loadglo.value.startsWith("*123*") || !loadglo.value.endsWith("#") || !loadglo.value.includes(pin)){
+            alert("invalid code")
+        }
+        else if(Network.value !=="glo"){
+            alert("invalid network provider")
+        }else{
+            alert (` ${Network.value} airtime of ${amount.value} load successfully`)
+        }
+    }
+      function loadairtelcard(){
+        let pin =document.getElementById("disPin").innerHTML
+        if(!loadairtel.value.startsWith("*232*") || !loadairtel.value.endsWith("#") || !loadairtel.value.includes(pin)){
+            alert("invalide code")
+      }
+      else if(Network.value !=="airtel"){
+        alert("invalid network provider")
+      }else{
+        alert(`${Network.value} airtime of ${amount.value} is load succefully`)
+      }
+      }
+
+      function load9mobilecard(){
+        let pin =document.getElementById("disPin").innerHTML
+        if(!load9mobile.value.startsWith("*999*") || !load9mobile.value.endsWith("#") || !load9mobile.value.includes(pin)){
+            alert("invalid code")
+        }
+        else if(Network.value !=="9mobile"){
+            alert("invalid network provider")
+        }else{
+            alert(`${Network.value} card of ${amount.value} is loaded successfully`)
+        }
+      }
+
+    //   let bun = color('black');
+    //   let cardd=document.getElementById("cardd");
+    //   setInterval(()=>{
+    //     cardd.innerHTML == changecolor('any');
+    //   },2000)
+        
+</script>

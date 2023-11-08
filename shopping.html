@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: wheat;
+        }
+        #shop{
+            background: whitesmoke;
+            height: 300px;
+            width: 700px;
+            margin-left: 400px;
+            box-shadow: 0px, 0px, 10px rgb(0, 0, #000);
+        }
+        #list{
+            text-align: center;
+            font-size: 30px;
+            font-weight: 100;
+        }
+        #item{
+            width: 690px;
+            height: 30px;
+        }
+        #price{
+            width: 690px;
+            height: 30px;
+        }
+        #qua{
+            width: 690px;
+            height: 30px;
+        }
+        #sut{
+            display: flex;
+            gap: 500px;
+            margin-top: 30px;
+        }
+        #sub{
+            background-color: black;
+            color: white;
+            border: 0;
+            width: 80px;
+            height: 35px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+        #display{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: white;
+            border: 1px solid white;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        #del{
+            background-color: black;
+            color: white;
+            border: 0;
+            width: 80px;
+            height: 35px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+        #edit{
+            color: black;
+            background-color: white;
+            border: 1px solid black;
+            width: 80px;
+            height: 35px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="shop">
+        <p id="list">Shopping List</p>
+        <input type="text" id="item" placeholder="Shopping items">
+        <br>
+        <br>
+        <input type="number" id="price" placeholder="Price">
+        <br>
+        <br>
+        <input type="text" id="qua"  placeholder="Quantity">
+
+        <div id="sut">
+            <button id="sub" onclick="operate('*')">Submit</button>
+            <span >Total: <span id="div1"></span></span>
+        </div>
+        <!-- <div id="div1"></div> -->
+    </div> 
+</body>
+<script>
+    let price=document.getElementById("price")
+    let qua=document.getElementById("qua")
+    let div1 = document.getElementById("div1")
+    function operate(sign){
+        let num1 = Number (price.value)
+        let num2 = Number (qua.value)
+        if (sign === "*"){
+            div1.innerHTML =num1 * num2
+        }
+    }
+    
+       
+</script>
+</html>

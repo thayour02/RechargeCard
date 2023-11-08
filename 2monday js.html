@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //functions in javascript
+    // let num1=3;
+    // let num2 = 5;
+    // function addNum(){
+    //     // console.log(num1+num2)
+    //     return num1 + num2
+    // }
+    // addNum()
+
+   
+    //parameter functions
+    // function addNum(num2,num3){
+    //     return num2+num3
+    // }
+    // console.log (addNum(10, 20))
+    // let test= addNum(2,6)
+    // console.log(test)
+
+    // Array
+    function operations(a, b){
+        const sum= a + b;
+        const difference= a - b;
+        const quotient= a / b;
+        const product=a * b;
+        const modulo = a % b;
+        const exponent = a ** b
+        return {add: sum, substract: difference, divide: quotient, multiply: product, modulo, exponent }
+    }
+
+    let arr1 = operations(20, 5)
+    console.log(arr1);
+     
+    let arr2=[25,15,4,100,0,3200000]
+    let sum= arr2[0];
+    let difference =arr1[1];
+
+    let obj1={name:"test", age:24,color:"red", club:"man u"};
+    let age=obj1.age;
+
+
+</script>
+</html>

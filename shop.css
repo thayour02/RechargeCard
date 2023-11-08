@@ -1,0 +1,66 @@
+body{
+    background-color: wheat;
+}
+#shop{
+    background: whitesmoke;
+    height: 600px;
+    width: 700px;
+    margin-left: 400px;
+    box-shadow: 0px, 0px, 10px rgb(0, 0, #000);
+    position: relative;
+}
+#list{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+}
+#item{
+    width: 690px;
+    height: 30px;
+}
+#price{
+    width: 690px;
+    height: 30px;
+}
+#quantity{
+    width: 690px;
+    height: 30px;
+}
+#sut{
+    display: flex;
+    gap: 500px;
+    margin-top: 30px;
+}
+#sub{
+    background-color: black;
+    color: white;
+    border: 0;
+    width: 80px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+button {
+    grid-column: 4;
+    justify-self: center;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.edit-delete-buttons {
+    display: flex;
+    gap: 5px;
+}

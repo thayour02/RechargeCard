@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <div id="shop">
+        <h1 id="list">Shopping List</h1>
+    
+        <input type="text" id="item" placeholder="item">
+        <br>
+        <br>
+        <input type="number" id="quantity" placeholder="Quantity">
+        <br> 
+        <br>
+        <input type="number" id="price" placeholder="Price">
+        <br> 
+        
+       <div id="sut">
+        <button id="sub" onclick="addItem()">Submit</button>
+    
+    
+        <div class="result">
+            <p id="total">Total: $0</p>
+        </div>
+       </div>
+    
+    <ul id="item-list">
+    </ul>
+    </div>
+</body>
+<script>
+    const itemList = document.getElementById('item-list');
+const totalElement = document.getElementById('total');
+
+function addItem() {
+    const item = document.getElementById('item').value;
+    const price = parseFloat(document.getElementById('price').value);
+    const quantity = parseInt(document.getElementById('quantity').value);
+
+    if (item.trim() !== '' && !isNaN(price) && !isNaN(quantity)) {
+        const totalPrice = price * quantity;
+
+        // Create list item and buttons for edit and delete
+        const newItem = document.createElement('li');
+        newItem.innerHTML = `
+            <span>${item} (Price: $${price}, Quantity: ${quantity})</span>
+            <div class="edit-delete-buttons">
+                <button onclick="editItem(this)">Edit</button>
+                <button onclick="deleteItem(this, ${totalPrice})">Delete</button>
+            </div>
+        `;
+
+        itemList.appendChild(newItem);
+
+        // Update the total
+        updateTotal(totalPrice);
+
+        // Clear input fields
+        document.getElementById('item').value = '';
+        document.getElementById('price').value = '';
+        document.getElementById('quantity').value = '';
+    }
+}
+
+function updateTotal(price) {
+    const currentTotal = parseFloat(totalElement.textContent.replace('Total: $', ''));
+    const newTotal = currentTotal + price;
+    totalElement.textContent = `Total: $${newTotal.toFixed(2)}`;
+}
+
+function editItem(button) {
+    
+}
+
+function deleteItem(button, price) {
+    const listItem = button.parentElement.parentElement;
+    const currentTotal = parseFloat(totalElement.textContent.replace('Total: $', ''));
+    const newTotal = currentTotal - price;
+    totalElement.textContent = `Total: $${newTotal.toFixed(2)}`;
+
+    // Remove the item from the list
+    itemList.removeChild(listItem);
+}
+</script>
+</html>

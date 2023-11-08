@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: orange;
+        }
+        .inside{
+            background-color: green;
+            width: 500px;
+            height: 300px;
+            margin-left: 400px;
+            margin-top: 100px;
+            padding-left: 50px;
+        }
+        .ot{
+            height: 30px;
+            background-color: yellowgreen;
+            border: 0 ;
+            border-radius: 20px;
+        }
+        .gg{
+            color: red;
+            text-decoration: underline;
+        }
+        .sc{
+            color: rgb(88, 51, 51);
+            font-size: 20px;
+        }
+        .tt{
+            height: 30px;
+            width: 200px;
+            border: 0;
+            border-radius: 2px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="inside">
+            <br>
+            <marquee class="sc" behavior="scroll" direction="right">welcome to the official grading</marquee>
+            <h1 class="gg">GRADING SYSTEM</h1>
+            <label for="score">Enter Score</label>
+            <br>
+            <input class="tt" placeholder="Input your score" type="number" id="score">
+            <button class="ot" onclick="calculategrade()">Check Grade</button>
+            <button class="ot" id="result">Your Grade show here..</button>
+
+            
+        </div>
+
+    </div>
+</body>
+<script>
+    function calculategrade(){
+        const score = parseFloat(document.getElementById ("score").value);
+
+        if (isNaN(score)){
+            document.getElementById("result").textContent="please enter valid score"
+        }else if(score <0){
+            document.getElementById("result").textContent="Grade not available"
+        }else if(score >100){
+            document.getElementById("result").textContent="Grade not available"
+        }else if(score >=70){
+            document.getElementById("result").textContent="Excellent TAYO👍😘"
+        }else if (score >=50){
+            document.getElementById("result").textContent="Good COMFORT 👍"
+        }else if (score >=40){
+            document.getElementById("result").textContent="Fair ADURA😒"
+        }else if (score <40){
+            document.getElementById("result").textContent="Very poor SALO😭"
+        }
+
+
+
+
+    }
+
+
+
+</script>
+</html>

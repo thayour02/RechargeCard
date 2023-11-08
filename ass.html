@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="input1" placeholder="i">
+    <input type="number" id="input2" placeholder="j">
+    <button onclick="multiply()">click</button>
+    <div id="div1"></div>
+</body>
+<script>
+    const i =parseInt (document.getElementById ("input1").value);
+    const j =parseInt (document.getElementById ("input2").value);
+
+    if (! isNaN(i) && !isNaN(j)){
+        const resultDiv = document.getElementById("result");
+        resultDiv.innerHTML = "";
+
+        for (let x=0; x<=j; x++){
+            const product = i*x;
+            resultDiv.innerHTML += `${i} * ${product}<br>`;
+        } else {
+            alert` 
+        }
+    }
+</script>
+</html>

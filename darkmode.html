@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7d0ed1ea43.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        #user{
+            height: 40px;
+            width: 200px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        #pass{
+            height: 40px;
+            width: 200px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        
+       
+    </style>
+</head>
+<body>
+        <!-- <h1>Ronaldo</h1>
+        <div class="losi">
+        <button id="log">LOG IN</button>
+
+        <button id="log">SIGN UP</button>
+        </div>
+        <br>
+        
+        <div>
+        <input id="user" type="text" placeholder="Password">
+        <button id="show" onclick="show() "> <i class="fa-solid fa-eye"></i></button>
+        <button id="hide" onclick="hide()"> <i class="fa-solid fa-eye-slash"></i></button>
+        </div>
+        <br> -->
+    <!-- <div class="shid">
+    <input id="pass" type="text" placeholder="Confirm Password">
+    <button id="show" onclick="show() "> <i class="fa-solid fa-eye"></i></button>
+    <button id="hide" onclick="hide()"> <i class="fa-solid fa-eye-slash"></i></button>
+    </div> -->
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente laudantium, sed, quod quidem alias quisquam, voluptatum sint enim necessitatibus beatae at. Ullam, temporibus necessitatibus doloremque officia expedita reiciendis itaque!</p>
+
+    <button onclick="changeColor()">dark/light mode</button>
+    
+    
+</body>
+<script>
+    // function show(){
+    //     document.getElementById("user").type = "password"
+    // }
+
+    // function hide(){
+    //     document.getElementById("user").type = "password"
+    // }
+
+    function changeColor(){
+        if(document.body.style.backgroundColor === "white"){
+            document.body.style.backgroundColor ="black"
+            document.body.style.color ="white"
+        }else {document.body.style.backgroundColor="white"
+            document.body.style.color = "black"
+
+        }
+           
+    }
+</script>
+</html>
